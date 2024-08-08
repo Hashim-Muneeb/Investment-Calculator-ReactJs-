@@ -6,25 +6,25 @@
 // - duration: The investment duration (time frame)
 export function calculateInvestmentResults({
   initialInvestment,
-  annualInvestment,
+  anualInvestment,
   expectedReturn,
   duration,
 }) {
-  const annualData = [];
+  const anualData = [];
   let investmentValue = initialInvestment;
 
   for (let i = 0; i < duration; i++) {
     const interestEarnedInYear = investmentValue * (expectedReturn / 100);
-    investmentValue += interestEarnedInYear + annualInvestment;
-    annualData.push({
+    investmentValue += interestEarnedInYear + anualInvestment;
+    anualData.push({
       year: i + 1, // year identifier
       interest: interestEarnedInYear, // the amount of interest earned in this year
       valueEndOfYear: investmentValue, // investment value at end of year
-      annualInvestment: annualInvestment, // investment added in this year
+      anualInvestment: anualInvestment, // investment added in this year
     });
   }
 
-  return annualData;
+  return anualData;
 }
 
 // The browser-provided Intl API is used to prepare a formatter object
